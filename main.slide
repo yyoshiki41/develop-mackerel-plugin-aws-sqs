@@ -41,8 +41,8 @@ Mathematical Optimization
 
 .image images/makanai.png 400 _
 
-Thanks for delicious lunch.
-I want to send my feedback : )
+thank you for treating me lunch 😊
+I want to send my feedback !
 
 * Develop mackerel-agent-plugins
 
@@ -105,6 +105,22 @@ e.g.) [[https://github.com/mackerelio/mackerel-agent-plugins/blob/master/mackere
 
 * For mackerel-agent-plugin developers
 
+_e.g.)_　[[https://github.com/yyoshiki41/mackerel-agent-plugins/tree/mackerel-plugin-aws-sqs/mackerel-plugin-aws-sqs][_mackerel-plugin-aws-sqs_]]
+
+	$ cat mackerel-plugin-aws-sqs.go
+	package main
+
+	import (
+		...
+		"github.com/aws/aws-sdk-go/aws"
+		"github.com/aws/aws-sdk-go/aws/credentials"
+		"github.com/aws/aws-sdk-go/aws/ec2metadata"
+		"github.com/aws/aws-sdk-go/aws/session"
+		"github.com/aws/aws-sdk-go/service/cloudwatch"
+	)
+
+* For mackerel-agent-plugin developers
+
 (maybe) deprecation ...
 
 	$ cat mackerel-plugin-aws-***.go
@@ -131,9 +147,10 @@ we use mackerel-agent-plugins in our production system !
 
 - [[http://eure.jp/recruit/jobs/][http://eure.jp/recruit/jobs/]]
 
-■ Golang community !　(connpass で絶賛募集中です！)
+■ Hello Gophers !
 
 - [[http://goinaction.connpass.com/event/25590/][Go in Action 輪読会]]
 - [[http://eure.connpass.com/event/25169/][gomobile.beer]]　　👈 tomorrow !!
 
-.image images/beer_go.png _ 250
+(connpass で絶賛募集中です！)
+.image images/beer_go.png _ 230
