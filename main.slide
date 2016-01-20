@@ -1,0 +1,139 @@
+Develop mackerel-plugin-aws-sqs
+
+Mackerel Meetup #6 Tokyo
+Jan / 20 / 2016
+
+Yoshiki Nakagawa
+eureka, Inc.
+
+https://github.com/yyoshiki41
+[[http://esola.co][esola.co]]
+
+* AboutMe
+
+[[https://github.com/yyoshiki41][@yyoshiki41]]
+
+Yoshiki Nakagawa
+
+Infrastructure Engineer, pairs Division
+
+Favorites
+
+- Radio, Podcast
+- ENGLAND PREMIER LEAGUE
+
+.image images/profile.png _ 300
+
+* Features
+
+Tech
+
+- Golang
+- Middleware, RDBMS
+- AWS
+
+Mathematical Optimization
+
+- quasi-Newton method
+- meta-heuristics
+
+* Yesterday
+
+.image images/makanai.png 400 _
+
+Thanks for delicious lunch.
+I want to send my feedback : )
+
+* Develop mackerel-agent-plugins
+
+*Official*
+
+- [[https://github.com/mackerelio/mackerel-agent-plugins][mackerelio/mackerel-agent-plugins]]
+- [[http://help-ja.mackerel.io/entry/howto/mackerel-agent-plugins][ミドルウェアのメトリック可視化に公式プラグイン集を使う]]
+
+*FYI*
+
+- [[http://tkuchiki.hatenablog.com/entry/2015/12/16/080152][mackerel-plugin-rack-stats を例にした mackerel agent plugin の作り方]]
+- [[http://heartbeats.jp/hbblog/2014/10/kommentar-mackerel-plugin.html][Mackerel プラグインを書いてみよう]]
+
+* Develop mackerel-plugin-aws-***
+
+_e.g.)_　[[https://github.com/yyoshiki41/mackerel-agent-plugins/tree/mackerel-plugin-aws-sqs/mackerel-plugin-aws-sqs][_mackerel-plugin-aws-sqs_]]
+
+Features
+
+- Get Amazon SQS metrics from CloudWatch
+- Use [[https://github.com/aws/aws-sdk-go][aws/aws-sdk-go]]
+
+Metrics
+- SentMessageSize
+- NumberOfEmptyReceives
+- NumberOfMessagesDeleted
+- NumberOfMessagesReceived
+- NumberOfMessagesSent
+- ApproximateNumberOfMessagesDelayed
+- ApproximateNumberOfMessagesNotVisible
+- ApproximateNumberOfMessagesVisible
+
+* e.g.) mackerel-plugin-aws-sqs
+
+.image images/img-sqs.png 250 _
+
+* For mackerel-agent-plugin developers
+
+▶  Use official AWS SDK for Go
+
+	$ tree $GOPATH/src/github.com/aws/aws-sdk-go
+	...
+	├── aws
+	│   ├── credentials
+	│   ...
+	│   └── session            <- Auth
+	...
+	├── sdk.go
+	├── service                <- Service packages (EC2, RDS, DynamoDB, etc...)
+	│ ...
+	│ ├── cloudwatch           <- Call CloudWatch APIs
+	│ │ ├── api.go
+	│ │ ├── cloudwatchiface
+	│ │ │ └── interface.go
+	│ │ ├── examples_test.go
+	│ │ └── service.go
+	.....
+
+e.g.) [[https://github.com/mackerelio/mackerel-agent-plugins/blob/master/mackerel-plugin-aws-ec2-ebs/aws-ec2-ebs.go][mackerel-plugin-aws-ec2-ebs]]
+
+* For mackerel-agent-plugin developers
+
+(maybe) deprecation ...
+
+	$ cat mackerel-plugin-aws-***.go
+	package main
+
+	import (
+		...
+		"github.com/crowdmob/goamz/aws"
+		"github.com/crowdmob/goamz/cloudwatch"
+		mp "github.com/mackerelio/go-mackerel-plugin"
+	)
+
+.image images/goamz.png 250 _
+
+* For mackerel-agent-plugin developers
+
+▶  Implement Unit test !!
+
+we use mackerel-agent-plugins in our production system !
+
+* 
+
+■ We're hiring !
+
+- [[http://eure.jp/recruit/jobs/][http://eure.jp/recruit/jobs/]]
+
+■ Golang community !　(connpass で絶賛募集中です！)
+
+- [[http://goinaction.connpass.com/event/25590/][Go in Action 輪読会]]
+- [[http://eure.connpass.com/event/25169/][gomobile.beer]]　　👈 tomorrow !!
+
+.image images/beer_go.png _ 250
